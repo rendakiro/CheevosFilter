@@ -1,14 +1,15 @@
-from recursos.generadorEntorno import generadorEntorno
-from recursos.comprobarRoms import comprobarRoms
+from checkEnvironment import checkEnvironment
+from checkRoms import checkRoms
 
-generadorEntorno = generadorEntorno()
+checkEnvironment = checkEnvironment()
 
-comprobarRoms = comprobarRoms()
-comprobarRoms.comprobarDirectorios()
-comprobarRoms.moverJuegos()
-listado = comprobarRoms.juegosCheevos
+checkRoms = checkRoms()
+checkRoms.checkFolder()
+checkRoms.moveGame()
 
-if len(listado) == 0:
+listFinal = checkRoms.gameCheevos
+
+if len(listFinal) == 0:
     print("Los juegos no tienen logros.")
 
 input("Presiona cualquier tecla para cerrar....")
