@@ -60,6 +60,10 @@ def generar_carpetas(user, api):
 def obtener_id_console(nombre):
     with open("hash/Consoles.json", "r") as file:
         data = json.load(file)
+    if (nombre == 'NES'):
+        nombre = 'NES/Famicom'
+    if (nombre == 'SNES'):
+        nombre = 'SNES/Super Famicom'
     name_search = [item for item in data if nombre in item["Name"]]
     for search in name_search:
         return search["ID"]
@@ -110,5 +114,5 @@ for folder in roms_folders:
                     os.makedirs(clean_directory)
                 os.rename("roms/"+folder+'/'+file, "clean/"+folder+'/'+file)
                 print(f"The file {file} have Cheevos")
-                input("Press any key to continue...")
+input("Press any key to continue...")                
 exit(0)
